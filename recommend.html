@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Recommender System</title>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+      <nav class="navbar" style="background-color:#00a65a">
+          <a class="navbar-brand">My book recommender</a>
+          <ul class="nav navbar-nav">
+              <li><a href="/">Home</a></li>
+              <li><a href="/recommend">Recommend</a></li>
+              <li><a>Contact</a></li>
+          </ul>
+      </nav>
+      <div class="container">
+          <div class = "row">
+              <div class="col-md-12">
+                  <h1> Recommend Books</h1>
+                  <form action="/recommend_books" method="post">
+                      <input name="user_input" class="form-control"><br>
+                      <input type="submit" class="btn btn-lg btn-warning">
+                  </form>
+              </div>
+              {% if data %}
+              {% for i in data %}
+
+                 <div class="col-md-3" style="margin-top:30px">
+                     <div class="card">
+                         <div class="card-body">
+                          <img class="card-img-top" src="{{i[2]}}">
+                          <p>{{i[0]}}</p>
+                          <h4>{{i[1]}}</h4>
+                      </div>
+                  </div>
+              </div>
+              {% endfor %}
+
+
+              {% endif %}
+
+
+          </div>
+      </div>
+
+
+</body>
+</html>
